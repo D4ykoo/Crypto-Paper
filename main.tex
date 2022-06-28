@@ -1,0 +1,102 @@
+\documentclass[a4paper,11pt, twoside]{article}
+
+
+%%%%%%%%%%%%%% Predefined packages
+\usepackage{times,amsmath,eurosym, amssymb, color, graphicx}
+\usepackage{booktabs, cellspace}
+\usepackage[ngerman]{babel} 
+%%%%%%%%%%%%%% Packages
+
+% Links
+\usepackage[
+hidelinks,
+colorlinks=true, 
+linkcolor=blue,
+]{hyperref}
+\usepackage{cleveref}
+
+% Literatur
+\usepackage[babel, german=quotes]{csquotes}
+\usepackage[
+backend=biber,				% Ref-Sortierung
+style=numeric-comp,			% Zitationsstil
+block=ragged, 				% Flattersatz
+sorting=none,
+]{biblatex}
+
+%%%%%%%%%%%%%% Useful definitions
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb N}
+
+\newcommand\veczwo[2]{\left[\begin{array}{r}#1\\#2\end{array}\right]}
+\newcommand\vecdrei[3]{\left[\begin{array}{r}#1\\#2\\#3\end{array}\right]}
+\newcommand\vecdreic[3]{\left[\begin{array}{c}#1\\#2\\#3\end{array}\right]}
+\newcommand\vecvier[4]{\left[\begin{array}{r}#1\\#2\\#3\\#4\end{array}\right]}
+\newcommand\vecsechs[6]{\left[\begin{array}{r}#1\\#2\\#3\\#4\\#5\\#6\end{array}\right]}
+
+\newcommand\matzz[4]{\left[\begin{array}{rr}#1&#2\\#3&#4\end{array}\right]}
+\newcommand\matdd[9]{\left[\begin{array}{rrr}#1&#2&#3\\#4&#5&#6\\#7&#8&#9\end{array}\right]}
+\newcommand\matddc[9]{\left[\begin{array}{ccc}#1&#2&#3\\#4&#5&#6\\#7&#8&#9\end{array}\right]}
+%%%%%%%%%%%%%%% 
+
+
+%%%%%%%%%%%%% Page layout
+\topmargin-20mm
+\headheight10mm
+\headsep10mm
+\topskip0.1mm
+\hoffset-15mm
+\textwidth15.5cm
+\textheight22cm
+\parindent0em
+%\markleft{\authors}
+%\markright{\shorttitle} 
+\pagenumbering{arabic}
+%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%% Includes
+\includeonly{
+	sections/dh_security,
+	sections/eg_problems,
+}
+%%%%%%%%%%%%
+
+\begin{document}
+\thispagestyle{empty}
+
+\hrule
+
+$\vphantom{i}$ \\[-.25cm]
+
+\section{Diffie-Hellman and El Gamal}  
+$\vphantom{i}\hspace{.65cm}$  \textit{Dario Köllner ...}
+
+$\vphantom{i}$ \\[-.25cm]
+
+\hrule
+
+%%%%%%%%%%%%%%%%%%%%%%%%% ADD YOUR CONTRIBUTION BELOW
+%%%%%%%%%%%%%%%%%%%%%%%%% USE SUBSECTION AND SUBSUBSECTION ONLY
+\subsection*{Introduction}
+Here comes the intro....
+
+%% DH part
+\input{sections/dh_security}
+
+$\vphantom{i}$ \\[-.25cm]
+
+%% El Gamal part
+\input{sections/eg_problems}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% PUT IN A PRETTY PICTURE HERE
+%\begin{figure}[h]
+%\includegraphics[width=3.0cm, height=3.0cm]{path/filename}
+%\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\end{document}
