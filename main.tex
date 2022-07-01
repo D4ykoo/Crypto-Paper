@@ -23,6 +23,8 @@ style=numeric-comp,			% Zitationsstil
 block=ragged, 				% Flattersatz
 sorting=none,
 ]{biblatex}
+\addbibresource{reference/reflist.bib}
+
 
 %%%%%%%%%%%%%% Useful definitions
 \newcommand{\R}{\mathbb R}
@@ -42,6 +44,7 @@ sorting=none,
 \newcommand\matdd[9]{\left[\begin{array}{rrr}#1&#2&#3\\#4&#5&#6\\#7&#8&#9\end{array}\right]}
 \newcommand\matddc[9]{\left[\begin{array}{ccc}#1&#2&#3\\#4&#5&#6\\#7&#8&#9\end{array}\right]}
 %%%%%%%%%%%%%%% 
+\newtheorem{definition}{Definition}
 
 
 %%%%%%%%%%%%% Page layout
@@ -81,6 +84,8 @@ $\vphantom{i}$ \\[-.25cm]
 
 %%%%%%%%%%%%%%%%%%%%%%%%% ADD YOUR CONTRIBUTION BELOW
 %%%%%%%%%%%%%%%%%%%%%%%%% USE SUBSECTION AND SUBSUBSECTION ONLY
+% TODO: Abstract is mentioned in the evaluation criterias
+\subsection*{Abstract}
 \subsection*{Introduction}
 Here comes the intro....
 
@@ -93,10 +98,13 @@ $\vphantom{i}$ \\[-.25cm]
 \input{sections/eg_problems}
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%% PUT IN A PRETTY PICTURE HERE
 %\begin{figure}[h]
 %\includegraphics[width=3.0cm, height=3.0cm]{path/filename}
 %\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%% 
 
+% TODO ALL OF US: Conclusion, critical reflection
+\printbibliography
 \end{document}

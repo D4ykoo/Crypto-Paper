@@ -1,5 +1,10 @@
 \subsection{Diffie-Helmann Security}
 \subsubsection{Computational-Diffie-Hellman-Problem}
+The Computational-Diffie-Hellman-Problem relies on the mathmatical discrete logarithm problem, which is used in more than one encryption procotoll.\\
+
+\textbf{Definition 1.} Let $G$ a finite cyclic group of the order p. If $p$ is a prime number and $g$ a primitive root mod p then for every $A \in \{1,2,...,p-1\}$ there is exactly one exponent $a \in \{0,1,2,...,p-2\}$ with $A \equiv g^a \mod{n}$ \cite{kryptographie.2016}. \\
+
+Which menas \glqq the exponent $a$ is called \textit{discrete logarithm} of $A$ to the basis of $g$ \grqq \cite{kryptographie.2016}. Currently there is no suitable algorithm for an efficient calculation for this mathmatical problem known. The cumulative distribution function of the discrete logarithm appears to be very random for a big prime group. This leads to the fact, that the discrete logarithm can not calculated in a sufficient time for attackers.
 
 \subsubsection{Decisional-Diffie-Hellman-Problem}
 
