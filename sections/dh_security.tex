@@ -2,9 +2,20 @@
 \subsubsection{Computational-Diffie-Hellman-Problem}
 The Computational-Diffie-Hellman-Problem relies on the mathmatical discrete logarithm problem, which is used in more than one encryption procotoll.\\
 
-\textbf{Definition 1.} Let $G$ a finite cyclic group of the order p. If $p$ is a prime number and $g$ a primitive root mod p then for every $A \in \{1,2,...,p-1\}$ there is exactly one exponent $a \in \{0,1,2,...,p-2\}$ with $A \equiv g^a \mod{n}$ \cite{kryptographie.2016}. \\
+\textbf{Definition 1.} Let $G$ a finite cyclic group of the order p. If $p$ is a prime number and $g$ a primitive root mod p then for every $A \in \{1,2,...,p-1\}$ there is exactly one exponent $a \in \{0,1,2,...,p-2\}$ with $A \equiv g^a \mod{n}$ \cite{kryptographie.2016}\cite{cryptMadeSimple.2015}. \\
 
-Which menas \glqq the exponent $a$ is called \textit{discrete logarithm} of $A$ to the basis of $g$ \grqq \cite{kryptographie.2016}. Currently there is no suitable algorithm for an efficient calculation for this mathmatical problem known. The cumulative distribution function of the discrete logarithm appears to be very random for a big prime group. This leads to the fact, that the discrete logarithm can not calculated in a sufficient time for attackers.
+Which menas \glqq the exponent $a$ is called \textit{discrete logarithm} of $A$ to the basis of $g$ \grqq \cite{kryptographie.2016}. Currently there is no suitable algorithm for an efficient calculation for this mathmatical problem known. The cumulative distribution function of the discrete logarithm appears to be very random for a big prime group. This leads to the fact, that the discrete logarithm can not calculated in a sufficient time for attackers.\\
+
+When an attacker gets the numbers \textit{p}, \textit{g}, \textit{A} and \textit{B} he does not know the discrete logarithm. He has to calculate the secret key. So in fact the Computational-Diffie-Hellman-Problem is to calculate the secret key $K = g^{ab} \mod{p}$ \cite{kryptographie.2016}\cite{cryptMadeSimple.2015}\cite{Netzwerkkommunikation}.
+
+\comment{
+\textbf{Example 1.}
+Let there be a group $\Z/n\Z$ with a number \textit{n} and cyclic order \textit{n}. Then a generator is  $1+n\Z$\\
+Generator: $1+n\mathbb{Z}$\\
+Congruence classs: $g + n\mathbb{Z}$
+\\ $A\in \{0,1,...,n-1\}$\\
+$\rightarrow A \equiv a \mod{n} \iff A \equiv g a \mod{n}$\\
+}
 
 \subsubsection{Decisional-Diffie-Hellman-Problem}
 
