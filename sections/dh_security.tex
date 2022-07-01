@@ -22,3 +22,15 @@ $\rightarrow A \equiv a \mod{n} \iff A \equiv g a \mod{n}$\\
 \subsubsection{Primenumber p and Bitlength q}
 
 \subsubsection{Man in the middle attack}
+Another attack on the Diffie-Hellman is the Man-In-The-Middle-Attack. This attack is quite common and can be used in a lot of situaitons. The attack infiltrates the communication between two instances Alice (A) and Bob (B). This makes it possible to influence the communication in a bad way. The attacker Mallory (M), the instance between A and B can spoofe and simulate towards A to be B and the other way round (see figure \ref{fig:mitm}).\\
+
+In case of the Diffie-Hellman protocoll it means that Alice sends $g^a \mod p$ to Mallory instead of Bob. Mallory sends now $g^m \mod p$ with the own parameter \textit{m} to Bob and simulates over Bob to be Alice. For Bob it appears that Alice sent the request and sends $g^b \mod p$ back. Now M sends $g^b \mod p$ back to Alice. The secret key pair for A and M are $K_A = g^{am} \mod p$ and $K_{AM} = g^{am} \mod p$. For M and B the pair looks like this: $K_{BM} = g^{bm} \mod p$ and $K_B = g^{bm} \mod p$.\\
+
+Mallory can now decrypt and encrypt every message that A and B sending each other and listens the communication.
+
+\begin{figure}[h]
+	\center
+	\includegraphics[width=0.8\textwidth]{images/mitm.png}
+	\caption{Man in the middle diagram}
+	\label{fig:mitm}
+\end{figure}
