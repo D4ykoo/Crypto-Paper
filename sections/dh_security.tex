@@ -6,8 +6,7 @@ The Computational-Diffie-Hellman-Problem relies on the mathmatical discrete loga
 
 Which menas \glqq the exponent $a$ is called \textit{discrete logarithm} of $A$ to the basis of $g$ \grqq \cite{kryptographie.2016}. Currently there is no suitable algorithm for an efficient calculation for this mathmatical problem known. The cumulative distribution function of the discrete logarithm appears to be very random for a big prime group. This leads to the fact, that the discrete logarithm can not calculated in a sufficient time for attackers.\\
 
-When an attacker gets the numbers \textit{p}, \textit{g}, \textit{A} and \textit{B} he does not know the discrete logarithm. He has to calculate the secret key. So in fact the Computational-Diffie-Hellman-Problem is to calculate the secret key $K = g^{ab} \mod{p}$ \cite{kryptographie.2016}\cite{cryptMadeSimple.2015}\cite{Netzwerkkommunikation}.
-
+When an attacker gets the numbers \textit{p}, \textit{g}, \textit{A} and \textit{B} he does not know the discrete logarithm. He has to calculate the secret key. So in fact the Computational-Diffie-Hellman-Problem is to calculate the secret key $K = g^{ab} \mod{p}$ \cite{kryptographie.2016}\cite{cryptMadeSimple.2015}\cite{Netzwerkkommunikation}. \glqq As long as the calculation is hard enough that it can't be solved in a decent time, it is not possible to determine the secret key \grqq \cite{kryptographie.2016}.
 \comment{
 \textbf{Example 1.}
 Let there be a group $\Z/n\Z$ with a number \textit{n} and cyclic order \textit{n}. Then a generator is  $1+n\Z$\\
@@ -18,7 +17,16 @@ $\rightarrow A \equiv a \mod{n} \iff A \equiv g a \mod{n}$\\
 }
 
 \subsubsection{Decisional-Diffie-Hellman-Problem}
+If the attacker can not get any information about the key, the Decisional-Diffie-Hellman-Problem (DDH) must be unassailable \cite{Boneh.1998}. At first the DDH seems to be harder than the Computational-Diffie-Helmlman-Problem but that is not the case \cite{kryptographie.2016} \cite{cryptMadeSimple.2015}. The attacker gets the following numbers $A = g^a \mod p, B = g^b \mod p, C = g^c \mod p$ \cite{kryptographie.2016}. Often times the Diffie-Hellman-Triple is set which means $c = ab \mod{p-1}$.\\
+In other words $a, b, c$ are not known and $c$ is \grqq equal to [$a * b$] with probability $\frac{1}{2}$, otherwise it is [...] random \grqq \cite{cryptMadeSimple.2015}. In fact the attacker can not conclude to $g^{ab}$ and has to guess which case the challanger chose. The differenciation if there is triple can be solved with the following  context that \grqq $g^{ab}$ is a quadratic remainder modulo \textit{p}, if $g^a$ or $g^b$ a quadratic remainder modulo \textit{p} \grqq \cite{kryptographie.2016}. It can be solved two similiar ways. Let A computes $g^{a*b}$ the process to determine \cite{kryptographie.2016} \cite{cryptMadeSimple.2015} if wether it is or not, looks like the following \pagebreak
 
+\indent $d \leftarrow A(a, b)$ \cite{cryptMadeSimple.2015} 
+which achives the same result as \\
+\indent $d \leftarrow ((\frac{A}{p}) = 1$ or $(\frac{B}{p}) = 1 )$ and $(\frac{C}{p}) = 1)$ \cite{kryptographie.2016}\\
+\indent  \textbf{if} $d = c$  return \textit{1}\\
+\indent \textbf{else} return \textit{0}\\
+
+That proves that if the advantage of the Decisional-Diffie-Hellman-Problem over the Computational-Diffie-Hellman-Problem is wether equal \cite{cryptMadeSimple.2015} or even better \cite{kryptographie.2016}. In fact the CDH is harder to solve than the DDH \cite{kryptographie.2016} \cite{cryptMadeSimple.2015}.
 
 \subsubsection{Primenumber p and Bitlength q}
 As conclusion of the Computational- and Decisional-Diffie-Hellman-Problem it is now known that the logarithm modulo \textit{p} is not efficient. But only if the group $G$ is big enough, which means the primenumber p must be also really big. Another security improvement is to increase the bitlength of q. Currently a good amount would be around 3000 bit \cite{kryptographie.2016}. As in the table \ref{tab:pp} is shown the recommend bitlength for q in the future is 512 and a minimum size p of 15,424. These numbers are necessary due to the increasing calucation power of the hardware. The 512 bit length for different usages is nowadays common and standard, besides 256 bit.
@@ -40,7 +48,7 @@ As conclusion of the Computational- and Decisional-Diffie-Hellman-Problem it is 
 \end{table}
 
 \subsubsection{Man in the middle attack}
-Another attack on the Diffie-Hellman is the Man-In-The-Middle-Attack. This attack is quite common and can be used in a lot of situaitons. The attack infiltrates the communication between two instances Alice (A) and Bob (B). This makes it possible to influence the communication in a bad way. The attacker Mallory (M), the instance between A and B can spoofe and simulate towards A to be B and the other way round (see figure \ref{fig:mitm}).\\
+Another attack on the Diffie-Hellman is the Man-In-The-Middle-Attack \cite{Netzwerkkommunikation}\cite{angewandteKrypt.2020}. This attack is quite common and can be used in a lot of situaitons. The attack infiltrates the communication between two instances Alice (A) and Bob (B). This makes it possible to influence the communication in a bad way. The attacker Mallory (M), the instance between A and B can spoofe and simulate towards A to be B and the other way round (see figure \ref{fig:mitm}).\\
 
 In case of the Diffie-Hellman protocoll it means that Alice sends $g^a \mod p$ to Mallory instead of Bob. Mallory sends now $g^m \mod p$ with the own parameter \textit{m} to Bob and simulates over Bob to be Alice. For Bob it appears that Alice sent the request and sends $g^b \mod p$ back. Now M sends $g^b \mod p$ back to Alice. The secret key pair for A and M are $K_A = g^{am} \mod p$ and $K_{AM} = g^{am} \mod p$. For M and B the pair looks like this: $K_{BM} = g^{bm} \mod p$ and $K_B = g^{bm} \mod p$.\\
 
